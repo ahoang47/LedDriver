@@ -13,6 +13,6 @@ void tearDown(void)
 void test_InitLed(void)
 {
 	uint16_t virtualLeds = 0xFF;
-	init_Led(&virtualLeds);
+	init_Led(&virtualLeds);//comment
 	TEST_ASSERT_EQUAL_HEX8(0, virtualLeds);
 }
