@@ -45,5 +45,13 @@ void test_TurnOnAlreadyOn(void)
 	led_TurnOn(1);
 	TEST_ASSERT_EQUAL_HEX8(0x01, virtualLeds);
 	led_TurnOn(1);
-	TEST_ASSERT_EQUAL_HEX8(0x01, virtualLeds);//comment
+	TEST_ASSERT_EQUAL_HEX8(0x01, virtualLeds);
+}
+
+void test_TurnOffMultiple(void)
+{
+	led_TurnOn(1);
+	led_TurnOn(2);
+	led_TurnOff(1);
+	TEST_ASSERT_EQUAL_HEX8(0x02, virtualLeds);
 }
