@@ -11,6 +11,10 @@ char* GlobalOrderError;
 extern void setUp(void);
 extern void tearDown(void);
 extern void test_InitLed(void);
+extern void test_TurnOn1(void);
+extern void test_TurnOff1(void);
+extern void test_TurnOnMultiple(void);
+extern void test_TurnOnAlreadyOn(void);
 
 
 /*=======Mock Management=====*/
@@ -77,7 +81,11 @@ static void run_test(UnityTestFunction func, const char* name, int line_num)
 int main(void)
 {
   UnityBegin("test_LedDriver.c");
-  run_test(test_InitLed, "test_InitLed", 13);
+  run_test(test_InitLed, "test_InitLed", 15);
+  run_test(test_TurnOn1, "test_TurnOn1", 20);
+  run_test(test_TurnOff1, "test_TurnOff1", 26);
+  run_test(test_TurnOnMultiple, "test_TurnOnMultiple", 32);
+  run_test(test_TurnOnAlreadyOn, "test_TurnOnAlreadyOn", 43);
 
   return UnityEnd();
 }
