@@ -6,5 +6,15 @@ static uint16_t * LedAddress;
 void init_Led(uint16_t * address)
 {
 	LedAddress = address;
-	*address = 0;
+	*LedAddress = 0;
+}
+
+void led_TurnOn(int ledNumber)
+{
+	*LedAddress |= (1 <<(ledNumber-1));
+}
+
+void led_TurnOff(int ledNumber)
+{
+	*LedAddress = 0;
 }
