@@ -142,3 +142,29 @@ void test_TurnOffMultiple(void)
 ), (UNITY_UINT)(56), UNITY_DISPLAY_STYLE_HEX8);
 
 }
+
+
+
+void test_TurnOffAlreadyOff(void)
+
+{
+
+ led_TurnOn(1);
+
+ led_TurnOff(1);
+
+ UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((0x00)), (UNITY_INT)(UNITY_INT8 )((virtualLeds)), (
+
+((void *)0)
+
+), (UNITY_UINT)(63), UNITY_DISPLAY_STYLE_HEX8);
+
+ led_TurnOff(1);
+
+ UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((0x00)), (UNITY_INT)(UNITY_INT8 )((virtualLeds)), (
+
+((void *)0)
+
+), (UNITY_UINT)(65), UNITY_DISPLAY_STYLE_HEX8);
+
+}
