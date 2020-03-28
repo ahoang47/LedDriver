@@ -4,15 +4,31 @@
   :file: test_LedDriver.c
 :successes:
 - :test: test_InitLed
-  :line: 13
+  :line: 15
+  :message: ''
+  :unity_test_time: 0
+- :test: test_TurnOn1
+  :line: 20
+  :message: ''
+  :unity_test_time: 0
+- :test: test_TurnOff1
+  :line: 26
+  :message: ''
+  :unity_test_time: 0
+- :test: test_TurnOnMultiple
+  :line: 32
+  :message: ''
+  :unity_test_time: 0
+- :test: test_TurnOnAlreadyOn
+  :line: 43
   :message: ''
   :unity_test_time: 0
 :failures: []
 :ignores: []
 :counts:
-  :total: 1
-  :passed: 1
+  :total: 5
+  :passed: 5
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0035600280000380735
+:time: 0.0021880180001971894
