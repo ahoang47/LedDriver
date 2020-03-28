@@ -122,3 +122,23 @@ void test_TurnOnAlreadyOn(void)
 ), (UNITY_UINT)(48), UNITY_DISPLAY_STYLE_HEX8);
 
 }
+
+
+
+void test_TurnOffMultiple(void)
+
+{
+
+ led_TurnOn(1);
+
+ led_TurnOn(2);
+
+ led_TurnOff(1);
+
+ UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((0x02)), (UNITY_INT)(UNITY_INT8 )((virtualLeds)), (
+
+((void *)0)
+
+), (UNITY_UINT)(56), UNITY_DISPLAY_STYLE_HEX8);
+
+}

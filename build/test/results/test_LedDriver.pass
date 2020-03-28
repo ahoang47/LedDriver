@@ -23,12 +23,16 @@
   :line: 43
   :message: ''
   :unity_test_time: 0
+- :test: test_TurnOffMultiple
+  :line: 51
+  :message: ''
+  :unity_test_time: 0
 :failures: []
 :ignores: []
 :counts:
-  :total: 5
-  :passed: 5
+  :total: 6
+  :passed: 6
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.005089266000027237
+:time: 0.004784021999967081

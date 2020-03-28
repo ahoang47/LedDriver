@@ -15,6 +15,7 @@ extern void test_TurnOn1(void);
 extern void test_TurnOff1(void);
 extern void test_TurnOnMultiple(void);
 extern void test_TurnOnAlreadyOn(void);
+extern void test_TurnOffMultiple(void);
 
 
 /*=======Mock Management=====*/
@@ -86,6 +87,7 @@ int main(void)
   run_test(test_TurnOff1, "test_TurnOff1", 26);
   run_test(test_TurnOnMultiple, "test_TurnOnMultiple", 32);
   run_test(test_TurnOnAlreadyOn, "test_TurnOnAlreadyOn", 43);
+  run_test(test_TurnOffMultiple, "test_TurnOffMultiple", 51);
 
   return UnityEnd();
 }
