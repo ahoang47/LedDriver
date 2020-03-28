@@ -3,18 +3,18 @@
 
 static uint16_t * LedAddress;
 
-void init_Led(uint16_t * address)
+void init_Led(uint16_t *physicalAddress)
 {
-	LedAddress = address;
+	LedAddress = physicalAddress;
 	*LedAddress = 0;
 }
 
 void led_TurnOn(int ledNumber)
 {
-	*LedAddress |= (1 <<(ledNumber-1));
+	*LedAddress |= (1 << (ledNumber-1));
 }
 
 void led_TurnOff(int ledNumber)
 {
-	*LedAddress = 0;
+	*LedAddress &= ~(1 << (ledNumber-1));
 }
