@@ -31,12 +31,36 @@
   :line: 59
   :message: ''
   :unity_test_time: 0
+- :test: test_TurnAllOn
+  :line: 68
+  :message: ''
+  :unity_test_time: 0
+- :test: test_LedMemory
+  :line: 74
+  :message: ''
+  :unity_test_time: 0
+- :test: test_Boundaries
+  :line: 81
+  :message: ''
+  :unity_test_time: 0
+- :test: test_TurnOnOutOfBounds
+  :line: 88
+  :message: ''
+  :unity_test_time: 0
+- :test: test_TurnOffOutOfBounds
+  :line: 98
+  :message: ''
+  :unity_test_time: 0
 :failures: []
-:ignores: []
+:ignores:
+- :test: test_OOB
+  :line: 110
+  :message: What should we do at runtime oob?
+  :unity_test_time: 0
 :counts:
-  :total: 7
-  :passed: 7
+  :total: 13
+  :passed: 12
   :failed: 0
-  :ignored: 0
+  :ignored: 1
 :stdout: []
-:time: 0.005183031000342453
+:time: 0.006404007000128331

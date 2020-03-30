@@ -168,3 +168,121 @@ void test_TurnOffAlreadyOff(void)
 ), (UNITY_UINT)(65), UNITY_DISPLAY_STYLE_HEX8);
 
 }
+
+
+
+void test_TurnAllOn(void)
+
+{
+
+ led_TurnAllOn();
+
+ UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0xffff)), (UNITY_INT)(UNITY_INT16)((virtualLeds)), (
+
+((void *)0)
+
+), (UNITY_UINT)(71), UNITY_DISPLAY_STYLE_HEX16);
+
+}
+
+
+
+void test_LedMemory(void)
+
+{
+
+ virtualLeds = 0xffff;
+
+ led_TurnOn(8);
+
+ UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0x80)), (UNITY_INT)(UNITY_INT16)((virtualLeds)), (
+
+((void *)0)
+
+), (UNITY_UINT)(78), UNITY_DISPLAY_STYLE_HEX16);
+
+}
+
+
+
+void test_Boundaries(void)
+
+{
+
+ led_TurnOn(1);
+
+ led_TurnOn(16);
+
+ UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0x8001)), (UNITY_INT)(UNITY_INT16)((virtualLeds)), (
+
+((void *)0)
+
+), (UNITY_UINT)(85), UNITY_DISPLAY_STYLE_HEX16);
+
+}
+
+
+
+void test_TurnOnOutOfBounds(void)
+
+{
+
+ led_TurnOn(17);
+
+ UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0)), (UNITY_INT)(UNITY_INT16)((virtualLeds)), (
+
+((void *)0)
+
+), (UNITY_UINT)(91), UNITY_DISPLAY_STYLE_HEX16);
+
+ led_TurnOn(33);
+
+ UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0)), (UNITY_INT)(UNITY_INT16)((virtualLeds)), (
+
+((void *)0)
+
+), (UNITY_UINT)(93), UNITY_DISPLAY_STYLE_HEX16);
+
+ led_TurnOn(100000);
+
+ UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0)), (UNITY_INT)(UNITY_INT16)((virtualLeds)), (
+
+((void *)0)
+
+), (UNITY_UINT)(95), UNITY_DISPLAY_STYLE_HEX16);
+
+}
+
+
+
+void test_TurnOffOutOfBounds(void)
+
+{
+
+ led_TurnAllOn();
+
+ led_TurnOff(17);
+
+ led_TurnOff(33);
+
+ led_TurnOff(100000);
+
+ UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0xFFFF)), (UNITY_INT)(UNITY_INT16)((virtualLeds)), (
+
+((void *)0)
+
+), (UNITY_UINT)(104), UNITY_DISPLAY_STYLE_HEX16);
+
+}
+
+
+
+
+
+void test_OOB(void)
+
+{
+
+ UnityIgnore( (("What should we do at runtime oob?")), (UNITY_UINT)(110));
+
+}

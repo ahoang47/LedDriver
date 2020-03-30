@@ -17,6 +17,12 @@ extern void test_TurnOnMultiple(void);
 extern void test_TurnOnAlreadyOn(void);
 extern void test_TurnOffMultiple(void);
 extern void test_TurnOffAlreadyOff(void);
+extern void test_TurnAllOn(void);
+extern void test_LedMemory(void);
+extern void test_Boundaries(void);
+extern void test_TurnOnOutOfBounds(void);
+extern void test_TurnOffOutOfBounds(void);
+extern void test_OOB(void);
 
 
 /*=======Mock Management=====*/
@@ -90,6 +96,12 @@ int main(void)
   run_test(test_TurnOnAlreadyOn, "test_TurnOnAlreadyOn", 43);
   run_test(test_TurnOffMultiple, "test_TurnOffMultiple", 51);
   run_test(test_TurnOffAlreadyOff, "test_TurnOffAlreadyOff", 59);
+  run_test(test_TurnAllOn, "test_TurnAllOn", 68);
+  run_test(test_LedMemory, "test_LedMemory", 74);
+  run_test(test_Boundaries, "test_Boundaries", 81);
+  run_test(test_TurnOnOutOfBounds, "test_TurnOnOutOfBounds", 88);
+  run_test(test_TurnOffOutOfBounds, "test_TurnOffOutOfBounds", 98);
+  run_test(test_OOB, "test_OOB", 108);
 
   return UnityEnd();
 }
