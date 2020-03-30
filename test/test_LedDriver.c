@@ -64,3 +64,48 @@ void test_TurnOffAlreadyOff(void)
 	led_TurnOff(1);
 	TEST_ASSERT_EQUAL_HEX8(0x00, virtualLeds);
 }
+
+void test_TurnAllOn(void)
+{
+	led_TurnAllOn();
+	TEST_ASSERT_EQUAL_HEX16(0xffff, virtualLeds);
+}
+
+void test_LedMemory(void)
+{
+	virtualLeds = 0xffff;
+	led_TurnOn(8);
+	TEST_ASSERT_EQUAL_HEX16(0x80, virtualLeds);
+}
+
+void test_Boundaries(void)
+{
+	led_TurnOn(1);
+	led_TurnOn(16);
+	TEST_ASSERT_EQUAL_HEX16(0x8001, virtualLeds);
+}
+
+void test_TurnOnOutOfBounds(void)
+{
+	led_TurnOn(17);
+	TEST_ASSERT_EQUAL_HEX16(0, virtualLeds);
+	led_TurnOn(33);
+	TEST_ASSERT_EQUAL_HEX16(0, virtualLeds);
+	led_TurnOn(100000);
+	TEST_ASSERT_EQUAL_HEX16(0, virtualLeds);
+}
+
+void test_TurnOffOutOfBounds(void)
+{
+	led_TurnAllOn();
+	led_TurnOff(17);
+	led_TurnOff(33);
+	led_TurnOff(100000);
+	TEST_ASSERT_EQUAL_HEX16(0xFFFF, virtualLeds);
+}
+
+
+void test_OOB(void)
+{
+	TEST_IGNORE_MESSAGE("What should we do at runtime oob?");
+}
