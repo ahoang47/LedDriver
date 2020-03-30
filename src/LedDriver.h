@@ -4,4 +4,5 @@
 void init_Led(uint16_t * address);
 void led_TurnOn(int ledNumber);
 void led_TurnOff(int ledNumber);
+void led_TurnAllOn(void);
 #endif // LEDDRIVER_H
