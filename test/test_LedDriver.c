@@ -104,15 +104,36 @@ void test_TurnOffOutOfBounds(void)
 	TEST_ASSERT_EQUAL_HEX16(0xFFFF, virtualLeds);
 }
 
-
-void test_OOB(void)
-{
-	TEST_IGNORE_MESSAGE("What should we do at runtime oob?");
-}
-
 void test_OOBProduceRTError(void)
 {
 	led_TurnOn(-1);
 	TEST_ASSERT_EQUAL_STRING("LED Driver: out-of-bounds LED", RuntimeErrorStub_GetLastError());
 	TEST_ASSERT_EQUAL(-1, RuntimeErrorStub_GetLastParameter());
 }
+
+void test_IsLedOn(void)
+{
+	TEST_ASSERT_FALSE(led_IsOn(11));
+	led_TurnOn(11);
+	TEST_ASSERT_TRUE(led_IsOn(11));
+	led_TurnOff(11);
+	TEST_ASSERT_FALSE(led_IsOn(11));
+}
+
+void test_IsLedOff(void)
+{
+	TEST_ASSERT_TRUE(led_IsOff(11));
+	led_TurnOn(11);
+	TEST_ASSERT_FALSE(led_IsOff(11));
+	led_TurnOff(11);
+	TEST_ASSERT_TRUE(led_IsOff(11));
+}
+
+void test_OOBAlwaysOff(void)
+{
+	TEST_ASSERT_FALSE(led_IsOn(17));
+	TEST_ASSERT_FALSE(led_IsOn(0));
+	TEST_ASSERT_TRUE(led_IsOff(0));
+	TEST_ASSERT_TRUE(led_IsOff(17));
+}
+
