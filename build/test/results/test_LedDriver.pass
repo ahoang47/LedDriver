@@ -52,19 +52,27 @@
   :message: ''
   :unity_test_time: 0
 - :test: test_OOBProduceRTError
-  :line: 113
+  :line: 107
+  :message: ''
+  :unity_test_time: 0
+- :test: test_IsLedOn
+  :line: 114
+  :message: ''
+  :unity_test_time: 0
+- :test: test_IsLedOff
+  :line: 123
+  :message: ''
+  :unity_test_time: 0
+- :test: test_OOBAlwaysOff
+  :line: 132
   :message: ''
   :unity_test_time: 0
 :failures: []
-:ignores:
-- :test: test_OOB
-  :line: 110
-  :message: What should we do at runtime oob?
-  :unity_test_time: 0
+:ignores: []
 :counts:
-  :total: 14
-  :passed: 13
+  :total: 16
+  :passed: 16
   :failed: 0
-  :ignored: 1
+  :ignored: 0
 :stdout: []
-:time: 0.0046945610010880046
+:time: 0.006961331999264075

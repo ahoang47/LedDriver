@@ -276,18 +276,6 @@ void test_TurnOffOutOfBounds(void)
 
 
 
-
-
-void test_OOB(void)
-
-{
-
- UnityIgnore( (("What should we do at runtime oob?")), (UNITY_UINT)(110));
-
-}
-
-
-
 void test_OOBProduceRTError(void)
 
 {
@@ -298,12 +286,64 @@ void test_OOBProduceRTError(void)
 
 ((void *)0)
 
-), (UNITY_UINT)(116));
+), (UNITY_UINT)(110));
 
  UnityAssertEqualNumber((UNITY_INT)((-1)), (UNITY_INT)((RuntimeErrorStub_GetLastParameter())), (
 
 ((void *)0)
 
-), (UNITY_UINT)(117), UNITY_DISPLAY_STYLE_INT);
+), (UNITY_UINT)(111), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_IsLedOn(void)
+
+{
+
+ if (!(led_IsOn(11))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(116)));};
+
+ led_TurnOn(11);
+
+ if ((led_IsOn(11))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(118)));};
+
+ led_TurnOff(11);
+
+ if (!(led_IsOn(11))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(120)));};
+
+}
+
+
+
+void test_IsLedOff(void)
+
+{
+
+ if ((led_IsOff(11))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(125)));};
+
+ led_TurnOn(11);
+
+ if (!(led_IsOff(11))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(127)));};
+
+ led_TurnOff(11);
+
+ if ((led_IsOff(11))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(129)));};
+
+}
+
+
+
+void test_OOBAlwaysOff(void)
+
+{
+
+ if (!(led_IsOn(17))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(134)));};
+
+ if (!(led_IsOn(0))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(135)));};
+
+ if ((led_IsOff(0))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(136)));};
+
+ if ((led_IsOff(17))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(137)));};
 
 }
