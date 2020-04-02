@@ -53,3 +53,14 @@ void led_TurnAllOn(void)
 	ledImage = 0xffff;
 	updateHardware();
 }
+
+bool led_IsOn(int ledNumber)
+{
+	if (isLedOOB(ledNumber)) return false;
+	return ledImage & ledIndexToBit(ledNumber);
+}
+
+bool led_IsOff(int ledNumber)
+{
+	return !(led_IsOn(ledNumber));
+}
