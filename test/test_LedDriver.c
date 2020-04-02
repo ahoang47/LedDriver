@@ -1,5 +1,5 @@
 #include "unity.h"
-
+#include "RuntimeErrorStub.h"
 #include "LedDriver.h"
 static uint16_t virtualLeds = 0xFF; 
 
@@ -108,4 +108,11 @@ void test_TurnOffOutOfBounds(void)
 void test_OOB(void)
 {
 	TEST_IGNORE_MESSAGE("What should we do at runtime oob?");
+}
+
+void test_OOBProduceRTError(void)
+{
+	led_TurnOn(-1);
+	TEST_ASSERT_EQUAL_STRING("LED Driver: out-of-bounds LED", RuntimeErrorStub_GetLastError());
+	TEST_ASSERT_EQUAL(-1, RuntimeErrorStub_GetLastParameter());
 }
