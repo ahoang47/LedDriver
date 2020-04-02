@@ -23,6 +23,7 @@ extern void test_Boundaries(void);
 extern void test_TurnOnOutOfBounds(void);
 extern void test_TurnOffOutOfBounds(void);
 extern void test_OOB(void);
+extern void test_OOBProduceRTError(void);
 
 
 /*=======Mock Management=====*/
@@ -102,6 +103,7 @@ int main(void)
   run_test(test_TurnOnOutOfBounds, "test_TurnOnOutOfBounds", 88);
   run_test(test_TurnOffOutOfBounds, "test_TurnOffOutOfBounds", 98);
   run_test(test_OOB, "test_OOB", 108);
+  run_test(test_OOBProduceRTError, "test_OOBProduceRTError", 113);
 
   return UnityEnd();
 }

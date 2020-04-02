@@ -3,3 +3,5 @@
 - TEST
 src/LedDriver.c:
 - TEST
+src/RuntimeErrorStub.c:
+- TEST

@@ -51,6 +51,10 @@
   :line: 98
   :message: ''
   :unity_test_time: 0
+- :test: test_OOBProduceRTError
+  :line: 113
+  :message: ''
+  :unity_test_time: 0
 :failures: []
 :ignores:
 - :test: test_OOB
@@ -58,9 +62,9 @@
   :message: What should we do at runtime oob?
   :unity_test_time: 0
 :counts:
-  :total: 13
-  :passed: 12
+  :total: 14
+  :passed: 13
   :failed: 0
   :ignored: 1
 :stdout: []
-:time: 0.006404007000128331
+:time: 0.0046945610010880046
